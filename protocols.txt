@@ -1,0 +1,44 @@
+-------- CLI->SRV (JSON spec)
+{
+    // Mandatory fields
+        cmd: User command, choose from { auth, draw, chat, save, uid }
+    // Optional (mutually exclusive) fields, depending on "cmd"
+        // cmd == auth
+            pass: Password reqd for admin privileges, allows for multiple admins
+        // cmd == draw
+            shape: What to draw, choose from { line, circle, rectangle, oval, freehand, erase, text }
+            colour: Colour of drawing
+            coords: [ x1, y1, x2, y2, ..., xn, yn ] // Number coords reqd depends on shape (line/circle/rect/oval = 2, freehand = n, erase = ???, text = 1)
+        // cmd == chat
+            msg: Message to show in chat window
+        // cmd == save
+            type: How to save board state, choose from { jpg, png, json } // Note: see "Whiteboard JSON save format" section
+        // cmd == uid
+            uid: Unique user id we'd like to choose
+}
+
+-------- SRV->CLI (JSON spec)
+{
+    // Mandatory fields
+        cmd: Server command, choose from { auth, draw, chat, save, uid}
+    // Optional (mutually exclusive) fields, depending on "cmd"
+        // cmd == auth
+            accepted: Boolean, whether user's request for admin has been accepted
+        // cmd == draw
+            shape: What to draw, choose from { line, circle, rectangle, oval, freehand, erase, text }
+            colour: Colour of drawing
+            coords: [ x1, y1, x2, y2, ..., xn, yn ] // Number coords reqd depends on shape (text = 1, line/circle/rect/oval/erase = 2, freehand = n)
+        // cmd == chat
+            uid: Username of user who sent message
+            msg: Message to show in chat window
+        // cmd == save
+            type: Type of file sent to client
+            contents: Entire file of type "type" encoded in base64 (less efficient but more compatible)
+        // cmd == uid
+            uid: Unique user id requested
+            success: Whether client gets that uid, depends if there's a name clash
+}
+
+-------- Whiteboard JSON save format
+* JSON file, contains list of replayable instructions to recreate whiteboard state
+* Just a log of all CLI->SRV user commands where "cmd" == draw

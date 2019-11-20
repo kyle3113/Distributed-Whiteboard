@@ -1,0 +1,52 @@
+#LoginPane {
+    -fx-background-image:url('./loginBackground.jpg');
+}
+
+#btnLine {
+    -fx-background-image: url('./Images/line.png');
+    -fx-background-size: 75% 75%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#btnCircle {
+    -fx-background-image: url('./Images/circle.png');
+    -fx-background-size: 75% 75%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#btnRect {
+    -fx-background-image: url('./Images/rectangle.png');
+    -fx-background-size: 75% 75%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#btnOval {
+    -fx-background-image: url('./Images/oval.png');
+    -fx-background-size: 75% 75%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#btnFreehand {
+    -fx-background-image: url('./Images/freeline.png');
+    -fx-background-size: 75% 75%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#btnEraser {
+    -fx-background-image: url('./Images/eraser.png');
+    -fx-background-size: 75% 75%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#btnText {
+    -fx-background-image: url('./Images/text.png');
+    -fx-background-size: 75% 75%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
