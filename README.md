@@ -1,4 +1,4 @@
-# COMP90015 Assign 2 (Shared Whiteboard)
+# Assign 2 (Shared Whiteboard)
 
 To run the server, run serverTUI.sh
 
